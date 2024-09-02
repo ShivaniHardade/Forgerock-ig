@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgerock-ig
+spec:
+  replicas: 2
+  template:
+    spec:
+      containers:
+      - name: forgerock-ig
+        image: forgerock/ig:latest
+        resources:
+          limits:
+            cpu: "200" # Lower CPU limit to 200m 
+            memory: "256Mi" # Lower memory limit to 256 MiB
+          requests:
+            cpu: "100" # Lower CPU request to 100m 
+            memory: "128Mi"
