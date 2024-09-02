@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgerock-ig 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: forgerock-ig 
+  template:
+    metadata:
+      labels:
+        app: forgerock-ig 
+    spec:
+      containers:
+      - name: forgerock-ig 
+        image: forgerock/ig:latest
+        ports:
+        - containerPort: 80
