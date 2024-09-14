@@ -8,4 +8,4 @@ spec:
     spec:
       containers:
       - name: forgerock-ig 
-        image: forgerock/ig:latest  
+        image: shiv512/forgerock-ig:latest 
