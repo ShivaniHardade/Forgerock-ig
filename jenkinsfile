@@ -6,17 +6,11 @@ pipeline {
                 git branch: 'master', url: 'https://github.com/ShivaniHardade/Forgerock-ig.git'
             }
         }
-        stage('Build') {
-            steps {
-                bat 'mvn clean install'
-                // If ForgeRock IG needs other build steps or dependencies, include them here.
-            }
-        }
         stage('Build Docker Image') {
             steps {
                 script {
                     def dockerImage = 'shiv512/forgerock-ig:latest'
-                    docker.build(dockerImage, "--no-cache docker")
+                    docker.build(dockerImage, "--no-cache docker") // Specifies the 'docker' folder
                 }
             }
         }
