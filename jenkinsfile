@@ -16,7 +16,7 @@ pipeline {
             steps {
                 script {
                     def dockerImage = 'shiv512/forgerock-ig:latest'
-                    docker.build(dockerImage, "--no-cache .")
+                    docker.build(dockerImage, "--no-cache docker")
                 }
             }
         }
