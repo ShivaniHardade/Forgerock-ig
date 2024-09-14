@@ -1,14 +1,12 @@
 ├── kubernetes
-  ├── base
-    │   ├── deployment.yaml
-    │   ├── service.yaml
+  ├── base/
+│   ├── kustomization.yaml
+│   ├── deployment.yaml
+│   └── service.yaml
+└── overlays/
+    ├── dev/
     │   ├── kustomization.yaml
-    └ overlays
-        ├── dev
-        │   ├── deployment-dev.yaml
-        |   ├── service-dev.yaml
-        │   └── kustomization.yaml
-        └── prod
-            ├── deployment-prod.yaml
-            ├── service-prod.yaml
-            └── kustomization.yaml
+    │   └── patches.yaml
+    └── prod/
+        ├── kustomization.yaml
+        └── patches.yaml
