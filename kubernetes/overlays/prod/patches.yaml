@@ -1,0 +1,13 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: forgerock-ig
+spec:
+  replicas: 5
+  template:
+    spec:
+      containers:
+      - name: my-app-container
+        image: nginx:stable   # Use a production-ready image
+        ports:
+        - containerPort: 80
