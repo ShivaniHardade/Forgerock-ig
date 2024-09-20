@@ -6,7 +6,6 @@
 └── overlays/
     ├── dev/
     │   ├── kustomization.yaml
-    │   └── patches.yaml
     └── prod/
         ├── kustomization.yaml
-        └── patches.yaml
+        
