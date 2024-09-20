@@ -1,8 +1,16 @@
+resources:
+  - ../../base  
+
 patches:
-  - patch: |-
+  - target:
+      group: apps
+      version: v1
+      kind: Deployment
+      name: forgerock-ig  
+    patch: |-
       apiVersion: apps/v1
       kind: Deployment
       metadata:
-        name: forgerock-ig-prod
+        name: forgerock-ig-prod  
       spec:
-        replicas: 2
+        replicas: 5  
