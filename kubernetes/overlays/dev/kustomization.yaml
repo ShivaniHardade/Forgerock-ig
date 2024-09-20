@@ -6,6 +6,6 @@ patches:
       apiVersion: apps/v1
       kind: Deployment
       metadata:
-        name: forgerock-ig-dev
+        name: forgerock-ig
       spec:
         replicas: 3
