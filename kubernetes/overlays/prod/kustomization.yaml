@@ -1,9 +1,16 @@
 resources:
-- ../../base
+  - ../../base  
 
 patches:
   - target:
       group: apps
       version: v1
       kind: Deployment
-    path: patches.yaml
+      name: forgerock-ig  
+    patch: |-
+      apiVersion: apps/v1
+      kind: Deployment
+      metadata:
+        name: forgerock-ig-production  
+      spec:
+        replicas: 4 
