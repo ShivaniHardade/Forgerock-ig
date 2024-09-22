@@ -13,4 +13,4 @@ patches:
       metadata:
         name: forgerock-ig-prod  
       spec:
-        replicas: 2
+        replicas: 1
