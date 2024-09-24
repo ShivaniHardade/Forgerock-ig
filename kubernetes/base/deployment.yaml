@@ -14,6 +14,6 @@ spec:
     spec:
       containers:
       - name: forgerock-ig 
-        image: shiv512/forgerock-ig:latest
+        image: forgerock-ig:latest
         ports:
-        - containerPort: 80
+        - containerPort: 8080
