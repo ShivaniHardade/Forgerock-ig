@@ -3,7 +3,7 @@ resources:
 
 patches:
   - target:
-      kind: Service
+      kind: Deployment
       name: forgerock-ig
     patch: |-
       - op: replace
