@@ -14,7 +14,8 @@ RUN mkdir -p "${IG_INSTANCE_DIR}" "${INSTALL_DIR}/bin" \
 COPY --chown=forgerock:root bin/ "${INSTALL_DIR}/bin/"
 COPY --chown=forgerock:root docker/ "${INSTALL_DIR}/docker/"
 COPY --chown=forgerock:root kubernetes/ "${INSTALL_DIR}/kubernetes/"
-COPY --chown=forgerock:root local\ policies/ "${INSTALL_DIR}/local policies/"
+COPY --chown=forgerock:root "local policies/" "${INSTALL_DIR}/local policies/"
+COPY --chown=forgerock:root lib/ "${INSTALL_DIR}/lib/"  # Adding the lib subfolder
 
 # Make start.sh executable
 RUN chmod +x "${INSTALL_DIR}/bin/start.sh"
