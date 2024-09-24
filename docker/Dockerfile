@@ -12,7 +12,7 @@ COPY --chown=forgerock:root . ${INSTALL_DIR}
 RUN mkdir -p "${IG_INSTANCE_DIR}" \
     && chown -R forgerock:root "${IG_INSTANCE_DIR}" "${INSTALL_DIR}" \
     && chmod -R g+rwx "${IG_INSTANCE_DIR}" "${INSTALL_DIR}" \
-    && ls -la "${INSTALL_DIR}/bin" \  # List contents for debugging
+    && ls -la "${INSTALL_DIR}/bin" \
     && chmod +x "${INSTALL_DIR}/bin/start.sh"  # Make start.sh executable
 
 # Define the command to run the application
