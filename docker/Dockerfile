@@ -1,22 +1,26 @@
+# Use a base image with Java installed
 FROM gcr.io/forgerock-io/java-17:latest
 
-# Default install directory for IG
-ENV INSTALL_DIR /opt/ig
+# Set environment variables for installation directories
+ENV IG_INSTANCE_DIR=/var/ig
+ENV INSTALL_DIR=/opt/ig
 
-# Copy application files
-COPY --chown=forgerock:root . "${INSTALL_DIR}"
-
-# Default home for IG config
-ENV IG_INSTANCE_DIR /var/ig
-
-# Prepare directories and set permissions
-RUN mkdir -p "${IG_INSTANCE_DIR}" \
+# Create necessary directories and set permissions
+RUN mkdir -p "${IG_INSTANCE_DIR}" "${INSTALL_DIR}/bin" \
     && chown -R forgerock:root "${IG_INSTANCE_DIR}" "${INSTALL_DIR}" \
-    && chmod -R g+rwx "${IG_INSTANCE_DIR}" "${INSTALL_DIR}" \
-    && chmod +x "${INSTALL_DIR}/bin/start.sh"  # Make start.sh executable
+    && chmod -R g+rwx "${IG_INSTANCE_DIR}" "${INSTALL_DIR}"
 
-# Use a non-root user to run the application
-USER 11111
+# Copy files from the local bin and other folders into the image
+COPY --chown=forgerock:root bin/ "${INSTALL_DIR}/bin/"
+COPY --chown=forgerock:root docker/ "${INSTALL_DIR}/docker/"
+COPY --chown=forgerock:root kubernetes/ "${INSTALL_DIR}/kubernetes/"
+COPY --chown=forgerock:root local\ policies/ "${INSTALL_DIR}/local policies/"
 
-# Use the full path for ENTRYPOINT
-ENTRYPOINT ["${INSTALL_DIR}/bin/start.sh", "${IG_INSTANCE_DIR}"]
+# Make start.sh executable
+RUN chmod +x "${INSTALL_DIR}/bin/start.sh"
+
+# Optionally expose the port the app runs on
+EXPOSE 8080
+
+# Define the command to run the application
+CMD ["java", "-jar", "${INSTALL_DIR}/bin/start.sh"]
