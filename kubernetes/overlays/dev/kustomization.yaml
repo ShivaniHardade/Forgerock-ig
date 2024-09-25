@@ -1,11 +1,6 @@
 resources:
   - ../../base  
 
-patches:
-  - target:
-      kind: Deployment
-      name: forgerock-ig
-    patch: |-
-      - op: replace
-        path: /metadata/name
-        value: forgerock-ig-dev
+replicas:
+  - name: forgerock-ig  
+    count: 3            
