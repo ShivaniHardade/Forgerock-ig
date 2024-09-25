@@ -1,11 +1,8 @@
 resources:
-  - ../../base  
+  - ../../base
 
-patches:
-  - target:
-      kind: Deployment
-      name: forgerock-ig
-    patch: |-
-      - op: replace
-        path: /spec/replicas
-        value: 1
+nameSuffix: -prod
+
+replicas:
+  - name: forgerock-ig  
+    count: 2           
