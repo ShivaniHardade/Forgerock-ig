@@ -7,5 +7,5 @@ patches:
       name: forgerock-ig
     patch: |-
       - op: replace
-        path: /spec/replicas
-        value: 2
+        path: /metadata/name
+        value: forgerock-ig-dev
