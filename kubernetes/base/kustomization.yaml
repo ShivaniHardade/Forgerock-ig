@@ -1,3 +1,4 @@
 resources:
 - deployment.yaml
 - service.yaml
+- forgerock-ig-secrets.yaml
