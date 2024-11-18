@@ -21,9 +21,15 @@ spec:
             - containerPort: 8080
           volumeMounts:
             - name: forgerock-ig-secrets-volume
-              mountPath: /etc/secrets           
+              mountPath: /etc/secrets
+              readOnly: true
+            - name: forgerock-ig-config-volume
+              mountPath: /etc/config
               readOnly: true
       volumes:
         - name: forgerock-ig-secrets-volume
           secret:
-            secretName: forgerock-ig-secrets  
+            secretName: forgerock-ig-secrets
+        - name: forgerock-ig-config-volume
+          configMap:
+            name: forgerock-ig-config
