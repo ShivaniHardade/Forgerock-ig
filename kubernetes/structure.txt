@@ -1,8 +1,10 @@
 ├── kubernetes
-  ├── base/
+|  ├── base/
 │   ├── kustomization.yaml
 │   ├── deployment.yaml
 │   └── service.yaml
+|   |__ configmap.yaml
+|    |__ forgerock-ig-secrets.yaml
 └── overlays/
     ├── dev/
     │   ├── kustomization.yaml
