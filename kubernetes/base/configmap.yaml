@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: forgerock-ig-config
+data:
+  org.forgerock.openig.http.port: "8080"
+  org.forgerock.openig.log.level: "DEBUG"
+  org.forgerock.openig.session.timeout: "3600"
